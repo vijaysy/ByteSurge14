@@ -1,0 +1,7 @@
+02:09:04
+Player 1:  Vijay
+Player 2:  Vinay
+Mobile No:  7676371579
+Team Name:  Pointers
+Clg:  SIT
+Score: 1.0
