@@ -25,7 +25,6 @@ import java.util.logging.Logger;
 
 class CodeFile {
     static String fname = "VIJAY";
-    static String path = new String("");
     static float scoure = 0;
     static String pl1, pl2, pn, tn, cl;
     static int w = 1024;//(int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
@@ -74,11 +73,11 @@ public class MyFrame extends JFrame {
 
 
     void setQue() {
-        q1 = new File(CodeFile.path + "qns1").list();
+        q1 = new File("qns1").list();
         List<String> lst1 = Arrays.asList(q1);
         Collections.shuffle(lst1);
 
-        q2 = new File(CodeFile.path + "qns2").list();
+        q2 = new File("qns2").list();
         List<String> lst2 = Arrays.asList(q2);
         Collections.shuffle(lst2);
 
@@ -196,11 +195,7 @@ public class MyFrame extends JFrame {
         });
 
 
-        File d = new File("vijay.txt");
-        CodeFile.path = d.getAbsolutePath().replace(d.getName(), "");//+"bin/ByteSurge";
-//CodeFile.path=d.getAbsolutePath().replace(d.getName(),"").replace("\\", "\\\\");
-//System.out.println(CodeFile.path);
-        BufferedImage bf = ImageIO.read(new File(CodeFile.path + "/sl.png"));
+        BufferedImage bf = ImageIO.read(new File("sl.png"));
         BackImage bf2 = new BackImage(bf);
         this.setContentPane(bf2);
 
@@ -509,7 +504,7 @@ public class MyFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    CodeFile.fname = CodeFile.path + codef.getText() + ".txt";
+                    CodeFile.fname = codef.getText() + ".txt";
                     CodeFile.pl1 = tf1.getText();
                     CodeFile.pl2 = tf2.getText();
                     CodeFile.pn = phno.getText();
@@ -542,7 +537,7 @@ public class MyFrame extends JFrame {
         this.setTitle("Instruction Page");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
-        BufferedImage bf2 = ImageIO.read(new File(CodeFile.path + "/inst.png"));
+        BufferedImage bf2 = ImageIO.read(new File("inst.png"));
         this.setContentPane(new BackImage(bf2));
         b2.setBounds(1024 - 300, 230 + 100 + 40 + 250, 150, 30);
         add(b2);
@@ -568,7 +563,7 @@ public class MyFrame extends JFrame {
     void StrtQuiz() throws Exception {
         this.setSize(CodeFile.w, CodeFile.h);
         this.setVisible(true);
-        ImageIcon n = new ImageIcon(CodeFile.path + "/nxt.jpg");
+        ImageIcon n = new ImageIcon("nxt.jpg");
         JButton b3 = new JButton(n);
         b3.setOpaque(false);
 
@@ -586,7 +581,7 @@ public class MyFrame extends JFrame {
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        BufferedImage bf = ImageIO.read(new File(CodeFile.path + "/mcq.png"));
+        BufferedImage bf = ImageIO.read(new File("mcq.png"));
 
         this.setContentPane(new BackImage(bf));
 
@@ -629,12 +624,12 @@ public class MyFrame extends JFrame {
 
 
         setQue();
-        ql = new JLabel(new ImageIcon(CodeFile.path + "/qns1/" + q1[i]));
+        ql = new JLabel(new ImageIcon("qns1/" + q1[i]));
         ql.setBounds(20, 170, 790, 610);
         add(ql);
 
 
-        qnoL = new JLabel(new ImageIcon(CodeFile.path + "/qno/" + "q" + (i + 1) + ".png"));
+        qnoL = new JLabel(new ImageIcon("qno/" + "q" + (i + 1) + ".png"));
         qnoL.setBounds(0, 0, 1024, 120);
         add(qnoL);
 
@@ -753,19 +748,19 @@ public class MyFrame extends JFrame {
                 remove(qnoL);
 
                 if (i < 15) {
-                    ql = new JLabel(new ImageIcon(CodeFile.path + "/qns1/" + q1[i]));
+                    ql = new JLabel(new ImageIcon("qns1/" + q1[i]));
                     ql.setBounds(20, 170, 790, 610);
                     add(ql);
                 }
 
                 if (i >= 15) {
-                    ql = new JLabel(new ImageIcon(CodeFile.path + "/qns2/" + q2[i - 15]));
+                    ql = new JLabel(new ImageIcon("qns2/" + q2[i - 15]));
                     ql.setBounds(20, 170, 790, 610);
                     add(ql);
                 }
 
 
-                qnoL = new JLabel(new ImageIcon(CodeFile.path + "/qno/" + "q" + (i + 1) + ".png"));
+                qnoL = new JLabel(new ImageIcon("qno/" + "q" + (i + 1) + ".png"));
                 qnoL.setBounds(0, 0, 1024, 120);
                 add(qnoL);
                 bg.clearSelection();
@@ -824,7 +819,7 @@ public class MyFrame extends JFrame {
         this.setVisible(true);
         this.setTitle("Thank You");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        BufferedImage bf3 = ImageIO.read(new File(CodeFile.path + "/tq.png"));
+        BufferedImage bf3 = ImageIO.read(new File("tq.png"));
         this.setContentPane(new BackImage(bf3));
         this.setVisible(true);
         //repaint();
