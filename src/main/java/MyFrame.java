@@ -175,7 +175,6 @@ public class MyFrame extends JFrame {
                     bw.close();
                     tqFrame();
                 } catch (Exception e1) {
-                    // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
 
@@ -183,13 +182,11 @@ public class MyFrame extends JFrame {
 
             @Override
             public void windowClosed(WindowEvent arg0) {
-                // TODO Auto-generated method stub
 
             }
 
             @Override
             public void windowActivated(WindowEvent arg0) {
-                // TODO Auto-generated method stub
 
             }
         });
@@ -525,11 +522,10 @@ public class MyFrame extends JFrame {
 
     }
 
-    public static void main(String[] args) throws IOException, Exception {
-
+    public static void main(String[] args) throws Exception {
         MyFrame f = new MyFrame();
         f.setVisible(true);
-//f.StrtQuiz();
+
     }
 
 
@@ -659,34 +655,7 @@ public class MyFrame extends JFrame {
 
                     tim.setText("Time's up!");
 
-                    try {
-                        FileWriter fw = new FileWriter(CodeFile.fname);
-                        BufferedWriter bw = new BufferedWriter(fw);
-
-                        Calendar cal = Calendar.getInstance();
-                        cal.getTime();
-                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-                        bw.write(sdf.format(cal.getTime()));
-                        bw.newLine();
-
-                        bw.write("Player 1:  " + CodeFile.pl1);
-                        bw.newLine();
-                        bw.write("Player 2:  " + CodeFile.pl2);
-                        bw.newLine();
-                        bw.write("Mobile No:  " + CodeFile.pn);
-                        bw.newLine();
-                        bw.write("Team Name:  " + CodeFile.tn);
-                        bw.newLine();
-                        bw.write("Clg:  " + CodeFile.cl);
-                        bw.newLine();
-                        bw.write("Score: " + CodeFile.scoure);
-                        bw.newLine();
-                        bw.close();
-                        tqFrame();
-                    } catch (Exception e1) {
-                        // TODO Auto-generated catch block
-                        e1.printStackTrace();
-                    }
+                    closeAction();
 
                     countdownTimer.stop();
                 }
@@ -741,7 +710,6 @@ public class MyFrame extends JFrame {
                 }
 
                 System.out.println(CodeFile.scoure);
-                // System.out.println(q[i].charAt(1));
 
                 i++;
                 remove(ql);
@@ -764,44 +732,11 @@ public class MyFrame extends JFrame {
                 qnoL.setBounds(0, 0, 1024, 120);
                 add(qnoL);
                 bg.clearSelection();
-                //System.out.println(i);
-
-
                 repaint();
                 if (i == 20) {
 
 
-                    try {
-                        //String rslt=CodeFile.path+"/"+CodeFile.fname;
-                        //System.out.println(rslt);
-                        FileWriter fw = new FileWriter(CodeFile.fname);
-                        BufferedWriter bw = new BufferedWriter(fw);
-
-
-                        Calendar cal = Calendar.getInstance();
-                        cal.getTime();
-                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-                        bw.write(sdf.format(cal.getTime()));
-                        bw.newLine();
-
-                        bw.write("Player 1:  " + CodeFile.pl1);
-                        bw.newLine();
-                        bw.write("Player 2:  " + CodeFile.pl2);
-                        bw.newLine();
-                        bw.write("Mobile No:  " + CodeFile.pn);
-                        bw.newLine();
-                        bw.write("Team Name:  " + CodeFile.tn);
-                        bw.newLine();
-                        bw.write("Clg:  " + CodeFile.cl);
-                        bw.newLine();
-                        bw.write("Score: " + CodeFile.scoure);
-                        bw.newLine();
-                        bw.close();
-                        tqFrame();
-                    } catch (Exception e1) {
-                        // TODO Auto-generated catch block
-                        e1.printStackTrace();
-                    }
+                    closeAction();
 
 
                 }
@@ -814,7 +749,7 @@ public class MyFrame extends JFrame {
     }
 
 
-    void tqFrame() throws Exception {
+    private void tqFrame() throws Exception {
         this.setSize(CodeFile.w, CodeFile.h);
         this.setVisible(true);
         this.setTitle("Thank You");
@@ -822,7 +757,36 @@ public class MyFrame extends JFrame {
         BufferedImage bf3 = ImageIO.read(new File("tq.png"));
         this.setContentPane(new BackImage(bf3));
         this.setVisible(true);
-        //repaint();
+    }
+
+    private void closeAction() {
+        try {
+            FileWriter fw = new FileWriter(CodeFile.fname);
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            Calendar cal = Calendar.getInstance();
+            cal.getTime();
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+            bw.write(sdf.format(cal.getTime()));
+            bw.newLine();
+
+            bw.write("Player 1:  " + CodeFile.pl1);
+            bw.newLine();
+            bw.write("Player 2:  " + CodeFile.pl2);
+            bw.newLine();
+            bw.write("Mobile No:  " + CodeFile.pn);
+            bw.newLine();
+            bw.write("Team Name:  " + CodeFile.tn);
+            bw.newLine();
+            bw.write("Clg:  " + CodeFile.cl);
+            bw.newLine();
+            bw.write("Score: " + CodeFile.scoure);
+            bw.newLine();
+            bw.close();
+            tqFrame();
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
     }
 
 }
