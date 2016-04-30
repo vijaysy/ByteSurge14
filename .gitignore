@@ -7,7 +7,7 @@
 *.jar
 *.war
 *.ear
-
+*.txt
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
@@ -57,3 +57,32 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+
+*.iml
+*.ipr
+*.iws
+
+*.DS_Store
+# Package Files #
+
+*.log
+*.log*
+*.rdb
+
+# Target directory #
+*logs/**
+*target/**
+*.idea/**
+*.gradle/**
+*build/**
+*out/**
+*javadoc/**
+docs/build/**
+
+*.deb
+
+### Gradle ###
+.gradle/
+build/
+logs/
