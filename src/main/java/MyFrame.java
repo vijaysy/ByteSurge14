@@ -19,17 +19,12 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-class CodeFile {
-    static String fname = "VIJAY";
-    static float scoure = 0;
-    static String pl1, pl2, pn, tn, cl;
-    static int w = 1024;//(int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-    static int h = 768;//(int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-}
+
 
 
 public class MyFrame extends JFrame {
@@ -87,7 +82,7 @@ public class MyFrame extends JFrame {
 
     public MyFrame() throws IOException {
 
-        this.setSize(CodeFile.w, CodeFile.h);
+        this.setSize(PlayersData.w, PlayersData.h);
 
         this.setTitle("SIT CSE BROWSE LOGIN PAGE");
 
@@ -105,7 +100,7 @@ public class MyFrame extends JFrame {
             public void windowIconified(WindowEvent arg0) {
                 // TODO Auto-generated method stub
                 try {
-                    FileWriter fw = new FileWriter(CodeFile.fname);
+                    FileWriter fw = new FileWriter(PlayersData.fname);
                     BufferedWriter bw = new BufferedWriter(fw);
 
                     Calendar cal = Calendar.getInstance();
@@ -114,17 +109,17 @@ public class MyFrame extends JFrame {
                     bw.write(sdf.format(cal.getTime()));
                     bw.newLine();
 
-                    bw.write("Player 1:  " + CodeFile.pl1);
+                    bw.write("Player 1:  " + PlayersData.pl1);
                     bw.newLine();
-                    bw.write("Player 2:  " + CodeFile.pl2);
+                    bw.write("Player 2:  " + PlayersData.pl2);
                     bw.newLine();
-                    bw.write("Mobile No:  " + CodeFile.pn);
+                    bw.write("Mobile No:  " + PlayersData.pn);
                     bw.newLine();
-                    bw.write("Team Name:  " + CodeFile.tn);
+                    bw.write("Team Name:  " + PlayersData.tn);
                     bw.newLine();
-                    bw.write("Clg:  " + CodeFile.cl);
+                    bw.write("Clg:  " + PlayersData.cl);
                     bw.newLine();
-                    bw.write("Score: " + CodeFile.scoure);
+                    bw.write("Score: " + PlayersData.scoure);
                     bw.newLine();
                     bw.close();
                     tqFrame();
@@ -151,7 +146,7 @@ public class MyFrame extends JFrame {
             public void windowClosing(WindowEvent arg0) {
                 // TODO Auto-generated method stub
                 try {
-                    FileWriter fw = new FileWriter(CodeFile.fname);
+                    FileWriter fw = new FileWriter(PlayersData.fname);
                     BufferedWriter bw = new BufferedWriter(fw);
 
                     Calendar cal = Calendar.getInstance();
@@ -160,17 +155,17 @@ public class MyFrame extends JFrame {
                     bw.write(sdf.format(cal.getTime()));
                     bw.newLine();
 
-                    bw.write("Player 1:  " + CodeFile.pl1);
+                    bw.write("Player 1:  " + PlayersData.pl1);
                     bw.newLine();
-                    bw.write("Player 2:  " + CodeFile.pl2);
+                    bw.write("Player 2:  " + PlayersData.pl2);
                     bw.newLine();
-                    bw.write("Mobile No:  " + CodeFile.pn);
+                    bw.write("Mobile No:  " + PlayersData.pn);
                     bw.newLine();
-                    bw.write("Team Name:  " + CodeFile.tn);
+                    bw.write("Team Name:  " + PlayersData.tn);
                     bw.newLine();
-                    bw.write("Clg:  " + CodeFile.cl);
+                    bw.write("Clg:  " + PlayersData.cl);
                     bw.newLine();
-                    bw.write("Score: " + CodeFile.scoure);
+                    bw.write("Score: " + PlayersData.scoure);
                     bw.newLine();
                     bw.close();
                     tqFrame();
@@ -501,12 +496,12 @@ public class MyFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    CodeFile.fname = codef.getText() + ".txt";
-                    CodeFile.pl1 = tf1.getText();
-                    CodeFile.pl2 = tf2.getText();
-                    CodeFile.pn = phno.getText();
-                    CodeFile.tn = teamt.getText();
-                    CodeFile.cl = clg.getText();
+                    PlayersData.fname = codef.getText() + ".txt";
+                    PlayersData.pl1 = tf1.getText();
+                    PlayersData.pl2 = tf2.getText();
+                    PlayersData.pn = phno.getText();
+                    PlayersData.tn = teamt.getText();
+                    PlayersData.cl = clg.getText();
                     instFrame();
                 } catch (Throwable ex) {
                     Logger.getLogger(MyFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -557,7 +552,7 @@ public class MyFrame extends JFrame {
 
 
     void StrtQuiz() throws Exception {
-        this.setSize(CodeFile.w, CodeFile.h);
+        this.setSize(PlayersData.w, PlayersData.h);
         this.setVisible(true);
         ImageIcon n = new ImageIcon("nxt.jpg");
         JButton b3 = new JButton(n);
@@ -673,43 +668,43 @@ public class MyFrame extends JFrame {
 
                 if (i < 15) {
 
-                    if (rb1.isSelected() && q1[i].charAt(1) == 'a') CodeFile.scoure++;
-                    if (rb1.isSelected() && q1[i].charAt(1) != 'a') CodeFile.scoure -= 0.25;
+                    if (rb1.isSelected() && q1[i].charAt(1) == 'a') PlayersData.scoure++;
+                    if (rb1.isSelected() && q1[i].charAt(1) != 'a') PlayersData.scoure -= 0.25;
 
 
-                    if (rb2.isSelected() && q1[i].charAt(1) == 'b') CodeFile.scoure++;
-                    if (rb2.isSelected() && q1[i].charAt(1) != 'b') CodeFile.scoure -= 0.25;
+                    if (rb2.isSelected() && q1[i].charAt(1) == 'b') PlayersData.scoure++;
+                    if (rb2.isSelected() && q1[i].charAt(1) != 'b') PlayersData.scoure -= 0.25;
 
 
-                    if (rb3.isSelected() && q1[i].charAt(1) == 'c') CodeFile.scoure++;
-                    if (rb3.isSelected() && q1[i].charAt(1) != 'c') CodeFile.scoure -= 0.25;
+                    if (rb3.isSelected() && q1[i].charAt(1) == 'c') PlayersData.scoure++;
+                    if (rb3.isSelected() && q1[i].charAt(1) != 'c') PlayersData.scoure -= 0.25;
 
 
-                    if (rb4.isSelected() && q1[i].charAt(1) == 'd') CodeFile.scoure++;
-                    if (rb4.isSelected() && q1[i].charAt(1) != 'd') CodeFile.scoure -= 0.25;
+                    if (rb4.isSelected() && q1[i].charAt(1) == 'd') PlayersData.scoure++;
+                    if (rb4.isSelected() && q1[i].charAt(1) != 'd') PlayersData.scoure -= 0.25;
 
                 }
 
                 if (i >= 15) {
 
-                    if (rb1.isSelected() && q2[i - 15].charAt(1) == 'a') CodeFile.scoure += 2;
-                    if (rb1.isSelected() && q2[i - 15].charAt(1) != 'a') CodeFile.scoure -= 0.50;
+                    if (rb1.isSelected() && q2[i - 15].charAt(1) == 'a') PlayersData.scoure += 2;
+                    if (rb1.isSelected() && q2[i - 15].charAt(1) != 'a') PlayersData.scoure -= 0.50;
 
 
-                    if (rb2.isSelected() && q2[i - 15].charAt(1) == 'b') CodeFile.scoure += 2;
-                    if (rb2.isSelected() && q2[i - 15].charAt(1) != 'b') CodeFile.scoure -= 0.50;
+                    if (rb2.isSelected() && q2[i - 15].charAt(1) == 'b') PlayersData.scoure += 2;
+                    if (rb2.isSelected() && q2[i - 15].charAt(1) != 'b') PlayersData.scoure -= 0.50;
 
 
-                    if (rb3.isSelected() && q2[i - 15].charAt(1) == 'c') CodeFile.scoure += 2;
-                    if (rb3.isSelected() && q2[i - 15].charAt(1) != 'c') CodeFile.scoure -= 0.50;
+                    if (rb3.isSelected() && q2[i - 15].charAt(1) == 'c') PlayersData.scoure += 2;
+                    if (rb3.isSelected() && q2[i - 15].charAt(1) != 'c') PlayersData.scoure -= 0.50;
 
 
-                    if (rb4.isSelected() && q2[i - 15].charAt(1) == 'd') CodeFile.scoure += 2;
-                    if (rb4.isSelected() && q2[i - 15].charAt(1) != 'd') CodeFile.scoure -= 0.50;
+                    if (rb4.isSelected() && q2[i - 15].charAt(1) == 'd') PlayersData.scoure += 2;
+                    if (rb4.isSelected() && q2[i - 15].charAt(1) != 'd') PlayersData.scoure -= 0.50;
 
                 }
 
-                System.out.println(CodeFile.scoure);
+                System.out.println(PlayersData.scoure);
 
                 i++;
                 remove(ql);
@@ -750,7 +745,7 @@ public class MyFrame extends JFrame {
 
 
     private void tqFrame() throws Exception {
-        this.setSize(CodeFile.w, CodeFile.h);
+        this.setSize(PlayersData.w, PlayersData.h);
         this.setVisible(true);
         this.setTitle("Thank You");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -761,7 +756,7 @@ public class MyFrame extends JFrame {
 
     private void closeAction() {
         try {
-            FileWriter fw = new FileWriter(CodeFile.fname);
+            FileWriter fw = new FileWriter(PlayersData.fname);
             BufferedWriter bw = new BufferedWriter(fw);
 
             Calendar cal = Calendar.getInstance();
@@ -770,17 +765,17 @@ public class MyFrame extends JFrame {
             bw.write(sdf.format(cal.getTime()));
             bw.newLine();
 
-            bw.write("Player 1:  " + CodeFile.pl1);
+            bw.write("Player 1:  " + PlayersData.pl1);
             bw.newLine();
-            bw.write("Player 2:  " + CodeFile.pl2);
+            bw.write("Player 2:  " + PlayersData.pl2);
             bw.newLine();
-            bw.write("Mobile No:  " + CodeFile.pn);
+            bw.write("Mobile No:  " + PlayersData.pn);
             bw.newLine();
-            bw.write("Team Name:  " + CodeFile.tn);
+            bw.write("Team Name:  " + PlayersData.tn);
             bw.newLine();
-            bw.write("Clg:  " + CodeFile.cl);
+            bw.write("Clg:  " + PlayersData.cl);
             bw.newLine();
-            bw.write("Score: " + CodeFile.scoure);
+            bw.write("Score: " + PlayersData.scoure);
             bw.newLine();
             bw.close();
             tqFrame();
